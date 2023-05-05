@@ -7,6 +7,7 @@ int new_prime_filter(int p[2]) {
         close(0);
         dup(p[0]);
         close(p[0]);
+        close(p[1]);
         
         int n, x, current_prime = -1, has_child = 0;
         int new_p[2];
