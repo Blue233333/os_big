@@ -30,6 +30,7 @@ int new_prime_filter(int p[2]) {
         }
         if (has_child == 1) {
             close(new_p[1]);
+            printf("%d waiting...\n", getpid());
             wait(0);
         }
         exit(0);
