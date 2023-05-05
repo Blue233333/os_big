@@ -13,7 +13,7 @@ int new_prime_filter(int p[2]) {
         while ((n = read(0, &x, 4)) != 0) {
             if (current_prime == -1) {
                 current_prime = x;
-                write(1, &current_prime, 4);
+                printf("prime %d\n", current_prime);
             }
             else if (x % current_prime == 0) {}
             else {
