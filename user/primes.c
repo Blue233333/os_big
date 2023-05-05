@@ -35,7 +35,7 @@ int new_prime_filter(int p[2]) {
         exit(0);
     }
     else {
-        exit(1);
+        return 1;
     }
 }
 
