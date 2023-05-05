@@ -14,7 +14,7 @@ int new_prime_filter(int p[2]) {
             printf("%d %d\n", getpid(), x);
             if (current_prime == -1) {
                 current_prime = x;
-                printf("prime %d\n", current_prime);
+                // printf("prime %d\n", current_prime);
             }
             else if (x % current_prime == 0) {}
             else {
