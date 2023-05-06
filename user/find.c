@@ -4,6 +4,7 @@
 #include "kernel/fs.h"
 
 void find_file(const char *path, char *tgt_name) {
+    printf("Now in %s.\n", path);
     struct stat st;
     int fd;
     if((fd = open(path, 0)) < 0){
