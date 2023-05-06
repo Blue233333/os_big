@@ -12,9 +12,10 @@ main(int argc, char *argv[])
     }
 
     char buf[512], *sub_argv[MAXARG], c;
-    int buf_p = 0, n, sub_argc = argc;
-    for (int i = 0; i < argc; i++) {
-        sub_argv[i] = argv[i];
+    int buf_p = 0, n, init_sub_argc = argc - 1;
+    int sub_argc = init_sub_argc;
+    for (int i = 0; i < sub_argc; i++) {
+        sub_argv[i] = argv[i + 1];
     }
     while ((n = read(0, &c, 1)) != 0) {
         if (c == ' ' || c == '\n') {
@@ -28,10 +29,10 @@ main(int argc, char *argv[])
                     exec(sub_argv[0], sub_argv);
                 }
                 else {
-                    for (int i = argc; i < sub_argc; i++) {
+                    for (int i = init_sub_argc; i < sub_argc; i++) {
                         free(sub_argv[i]);
                     }
-                    sub_argc = argc;
+                    sub_argc = init_sub_argc;
                     wait(0);
                 }
             }
