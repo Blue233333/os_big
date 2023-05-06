@@ -26,10 +26,10 @@ main(int argc, char *argv[])
             if (c == '\n') {
                 if (fork() == 0) {
                     sub_argv[sub_argc] = 0;
-                    for (int i = 0; i < sub_argc; i++) {
-                        printf("%s ", sub_argv[i]);
-                    }
-                    printf("\n");
+                    // for (int i = 0; i < sub_argc; i++) {
+                    //     printf("%s ", sub_argv[i]);
+                    // }
+                    // printf("\n");
                     exec(sub_argv[0], sub_argv);
                 }
                 else {
