@@ -37,7 +37,7 @@ void find_file(const char *path, char *tgt_name) {
             continue;
         }
 
-        if (st.type == T_FILE && strcmp(de.name, tgt_name)==0) {
+        if (strcmp(de.name, tgt_name)==0) {
             printf("%s\n", buf);
         }
         if (st.type == T_DIR && strcmp(de.name, ".")!=0 && strcmp(de.name, "..")!=0) {

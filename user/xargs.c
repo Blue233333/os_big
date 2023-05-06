@@ -19,8 +19,9 @@ main(int argc, char *argv[])
     }
     while ((n = read(0, &c, 1)) != 0) {
         if (c == ' ' || c == '\n') {
-            sub_argv[sub_argc] = (char *)malloc(sizeof(char) * buf_p);
-            memmove(sub_argv[sub_argc], buf, buf_p);
+            buf[buf_p] = 0;
+            sub_argv[sub_argc] = (char *)malloc(sizeof(char) * (buf_p + 1));
+            memmove(sub_argv[sub_argc], buf, (buf_p + 1));
             sub_argc++;
             buf_p = 0;
             if (c == '\n') {
