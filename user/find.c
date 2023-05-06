@@ -4,7 +4,7 @@
 #include "kernel/fs.h"
 
 void find_file(const char *path, char *tgt_name) {
-    printf("Now in %s.\n", path);
+    // printf("Now in %s.\n", path);
     struct stat st;
     int fd;
     if((fd = open(path, 0)) < 0){
@@ -40,7 +40,7 @@ void find_file(const char *path, char *tgt_name) {
         if (strcmp(de.name, tgt_name)==0) {
             printf("%s\n", buf);
         }
-        if (st.type == T_DIR) {
+        if (st.type == T_DIR && strcmp(de.name, ".")!=0 && strcmp(de.name, "..")!=0) {
             find_file(buf, tgt_name);
         }
     }
